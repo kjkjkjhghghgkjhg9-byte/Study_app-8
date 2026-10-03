@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KMA Pro 3.0</title>
+<style>
+:root{--p:#6c5ce7;--p2:#9b6cff;--bg:#f5f6fb;--c:#fff;--t:#182033;--m:#7c8498;--l:#e6e9f1;--ok:#16a34a;--sh:0 12px 32px #19203b12}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--t)}button,input,textarea,select{font:inherit}button{border:0;cursor:pointer}input,textarea,select{outline:0}
+.top{height:70px;background:var(--c);border-bottom:1px solid var(--l);display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:sticky;top:0;z-index:10}.brand{display:flex;gap:10px;align-items:center}.logo{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;display:grid;place-items:center;font-weight:900}.brand small{display:block;color:var(--m);margin-top:3px}.icon{width:42px;height:42px;border-radius:12px;background:var(--bg)}
+.layout{display:flex}.side{width:235px;background:var(--c);border-left:1px solid var(--l);min-height:calc(100vh - 70px);padding:14px;position:sticky;top:70px}.nav{width:100%;padding:12px;border-radius:12px;background:none;text-align:right;color:var(--m);margin:3px 0}.nav.active,.nav:hover{background:#6c5ce712;color:var(--p)}.main{flex:1;max-width:1500px;margin:auto;padding:24px}.page{display:none}.page.active{display:block}.hero{padding:30px;border-radius:27px;color:#fff;background:linear-gradient(135deg,var(--p),var(--p2));display:flex;justify-content:space-between;align-items:center}.hero h1{font-size:30px;margin:8px 0}.hero p{line-height:1.9;max-width:700px}.hero button{padding:12px 18px;border-radius:12px;color:var(--p);background:#fff;font-weight:bold;margin-top:14px}.hero-art{font-size:85px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}.card,.stat{background:var(--c);border:1px solid var(--l);border-radius:19px;padding:19px;box-shadow:var(--sh)}.stat strong{display:block;font-size:25px;margin:7px 0}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.title{display:flex;justify-content:space-between;margin-bottom:14px}.muted{color:var(--m)}.progress{height:10px;background:#e9ebf2;border-radius:20px;overflow:hidden;margin:13px 0}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--p),var(--p2))}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.quick button{padding:16px;text-align:right;background:var(--bg);border-radius:13px;color:var(--t)}.quick b,.quick small{display:block;margin-top:5px}.quick small{color:var(--m)}
+.header{margin-bottom:18px}.header p{color:var(--m);margin-top:6px}.field{width:100%;padding:12px;border:1px solid var(--l);border-radius:11px;background:var(--c);color:var(--t)}.row{display:flex;gap:9px;flex-wrap:wrap}.row>*{flex:1}.btn{padding:12px 16px;border-radius:11px;background:var(--p);color:#fff;font-weight:bold}.btn.secondary{background:var(--bg);color:var(--t)}.books{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.book{background:var(--c);border:1px solid var(--l);border-radius:18px;padding:18px;box-shadow:var(--sh)}.cover{width:52px;height:62px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;font-size:25px;margin-bottom:10px}.book p{color:var(--m);margin:7px 0 12px}.book a,.book button{padding:9px 11px;border-radius:9px;text-decoration:none;font-size:12px;font-weight:bold}.book a{background:var(--p);color:#fff}.book button{background:#6c5ce712;color:var(--p)}
+.timer{text-align:center;max-width:700px;margin:auto}.timerNum{font-size:72px;color:var(--p);font-weight:900;padding:35px 0}.task{display:flex;gap:10px;align-items:center;padding:13px 0;border-bottom:1px solid var(--l)}.task span{flex:1}.task.done span{text-decoration:line-through;color:var(--m)}.del{background:none;color:#ef4444}.notes{width:100%;min-height:320px;padding:15px;border:1px solid var(--l);border-radius:12px;background:var(--bg);color:var(--t);resize:vertical;line-height:1.8}
+.aiBox{display:grid;grid-template-columns:280px 1fr;gap:15px}.aiSide{background:var(--c);border:1px solid var(--l);border-radius:18px;padding:16px}.aiChat{background:var(--c);border:1px solid var(--l);border-radius:18px;min-height:520px;display:flex;flex-direction:column}.messages{flex:1;padding:18px;overflow:auto}.msg{max-width:80%;padding:12px 14px;border-radius:14px;margin-bottom:10px;line-height:1.8;white-space:pre-wrap}.user{background:#6c5ce714;margin-right:auto}.bot{background:var(--bg);margin-left:auto}.composer{display:flex;gap:8px;padding:12px;border-top:1px solid var(--l)}.composer input{flex:1}.suggestions{display:grid;gap:8px;margin-top:10px}.suggestions button{padding:10px;border-radius:10px;background:var(--bg);text-align:right;color:var(--t)}
+.searchResult{padding:14px;border:1px solid var(--l);border-radius:13px;margin-top:9px;background:var(--bg)}.searchResult a{color:var(--p);font-weight:bold;text-decoration:none}
+.plan{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}.day{background:var(--bg);padding:10px;border-radius:12px}.day input{width:100%;padding:8px;margin-top:7px;border:1px solid var(--l);border-radius:8px;background:var(--c);color:var(--t)}
+.login{min-height:100vh;display:grid;place-items:center;padding:20px}.loginbox{max-width:450px;width:100%;background:var(--c);padding:32px;border-radius:26px;box-shadow:var(--sh);text-align:center}.loginbox .logo{width:80px;height:80px;margin:auto auto 15px}.loginbox p{color:var(--m);line-height:1.8;margin:10px 0 18px}.loginbox .field{margin-bottom:10px}.primary{width:100%;padding:14px;border-radius:12px;background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;font-weight:bold}
+.mobile{display:none}body.dark{--bg:#0e1220;--c:#171b2b;--t:#f2f4f8;--m:#9ba4b6;--l:#292e42}body.dark .progress{background:#292e42}
+@media(max-width:1000px){.grid4{grid-template-columns:repeat(2,1fr)}.books{grid-template-columns:repeat(2,1fr)}.quick{grid-template-columns:repeat(2,1fr)}.plan{grid-template-columns:repeat(4,1fr)}.aiBox{grid-template-columns:1fr}}
+@media(max-width:750px){.side{display:none}.main{padding:15px 15px 80px}.hero-art{display:none}.two{grid-template-columns:1fr}.books{grid-template-columns:1fr}.grid4{grid-template-columns:repeat(2,1fr)}.plan{grid-template-columns:1fr 1fr}.mobile{display:flex;position:fixed;bottom:0;right:0;left:0;height:68px;background:var(--c);border-top:1px solid var(--l);z-index:20}.mobile button{flex:1;background:none;color:var(--m)}.mobile small{display:block;font-size:10px}.brand span{display:none}.msg{max-width:92%}}
+</style>
+</head>
+<body>
+<section id="login" class="login"><div class="loginbox"><div class="logo">KMA</div><h1>KMA Pro 3.0</h1><p>منصة تعليمية ذكية مع واجهة جاهزة للربط بخدمة الذكاء الاصطناعي.</p><input id="name" class="field" placeholder="اسم الطالب"><input id="email" class="field" type="email" dir="ltr" placeholder="البريد الإلكتروني"><button class="primary" onclick="login()">دخول 🚀</button></div></section>
+
+<div id="app" style="display:none">
+<header class="top"><div class="brand"><div class="logo">KMA</div><div><b>Knowledge & Mastery Academy</b><small>Pro 3.0 • تعلم بذكاء</small></div></div><button class="icon" onclick="toggleDark()">🌙</button></header>
+<div class="layout"><aside class="side">
+<button class="nav active" onclick="go('home',this)">🏠 الرئيسية</button><button class="nav" onclick="go('ai',this)">🤖 المساعد الذكي</button><button class="nav" onclick="go('library',this)">📚 المكتبة</button><button class="nav" onclick="go('study',this)">⏱️ المذاكرة</button><button class="nav" onclick="go('tasks',this)">✅ المهام</button><button class="nav" onclick="go('plan',this)">📅 الخطة</button><button class="nav" onclick="go('notes',this)">📝 الملاحظات</button>
+</aside><main class="main">
+
+<section id="home" class="page active"><div class="hero"><div><small>مرحبًا بك 👋</small><h1 id="welcome">أهلاً بك</h1><p>نظم مذاكرتك، اسأل المساعد، وابحث عن مصادر تعليمية في مكان واحد.</p><button onclick="go('ai')">🤖 افتح المساعد الذكي</button></div><div class="hero-art">🎓</div></div>
+<div class="grid4"><div class="stat">⏱️<strong id="mins">0</strong><small class="muted">دقائق مذاكرة</small></div><div class="stat">✅<strong id="done">0</strong><small class="muted">مهام مكتملة</small></div><div class="stat">⭐<strong id="xp">0</strong><small class="muted">XP</small></div><div class="stat">📚<strong id="booksN">0</strong><small class="muted">كتب</small></div></div>
+<div class="two"><div class="card"><div class="title"><h2>🎯 هدف اليوم</h2><b id="pct">0%</b></div><div class="progress"><span id="bar"></span></div><small class="muted">هدفك 60 دقيقة يوميًا.</small></div><div class="card"><h2>💡 رسالة اليوم</h2><p id="quote" style="margin-top:12px;line-height:1.9"></p></div></div>
+<div class="card" style="margin-top:18px"><div class="title"><h2>⚡ وصول سريع</h2></div><div class="quick"><button onclick="go('ai')">🤖<b>المساعد</b><small>اسأل وتعلم</small></button><button onclick="go('library')">📚<b>المكتبة</b><small>مصادر وكتب</small></button><button onclick="go('study')">⏱️<b>المؤقت</b><small>جلسة تركيز</small></button><button onclick="go('tasks')">✅<b>المهام</b><small>نظم يومك</small></button></div></div></section>
+
+<section id="ai" class="page"><div class="header"><h1>🤖 المساعد الذكي</h1><p>الواجهة جاهزة للربط بـ AI حقيقي من خلال Backend آمن.</p></div>
+<div class="aiBox"><aside class="aiSide"><h3>🎯 ماذا تريد؟</h3><div class="suggestions"><button onclick="suggest('اشرح لي هذا الدرس بطريقة سهلة مع أمثلة.')">📖 شرح درس</button><button onclick="suggest('أنشئ لي 10 أسئلة اختيار من متعدد في الرياضيات مع الإجابات.')">📝 أسئلة</button><button onclick="suggest('ساعدني في عمل خطة مذاكرة لهذا الأسبوع.')">📅 خطة مذاكرة</button><button onclick="suggest('اقترح لي مصادر وكتبًا مجانية عن الفيزياء.')">📚 مصادر</button></div><hr style="border:0;border-top:1px solid var(--l);margin:18px 0"><h3>🔌 حالة الربط</h3><p id="aiStatus" class="muted" style="margin-top:8px;line-height:1.7">وضع تجريبي محلي. ضع رابط Backend في الإعدادات داخل الكود قبل الاستخدام الحقيقي.</p></aside>
+<div class="aiChat"><div id="messages" class="messages"><div class="msg bot">مرحبًا! 👋 أنا واجهة المساعد الذكي في KMA.<br>يمكنك سؤالي عن المذاكرة أو طلب أسئلة أو مصادر.</div></div><div class="composer"><input id="aiInput" class="field" placeholder="اكتب سؤالك هنا..." onkeydown="if(event.key==='Enter')sendAI()"><button class="btn" onclick="sendAI()">إرسال 🚀</button></div></div></div></section>
+
+<section id="library" class="page"><div class="header"><h1>📚 المكتبة الذكية</h1><p>أضف روابط الكتب والمصادر التي تريد الرجوع إليها.</p></div><div class="card"><div class="row"><input id="bt" class="field" placeholder="اسم الكتاب أو المصدر"><input id="bs" class="field" placeholder="المادة"><input id="bu" class="field" dir="ltr" placeholder="https://..."><button class="btn" onclick="addBook()">إضافة</button></div></div><div id="books" class="books" style="margin-top:15px"></div></section>
+
+<section id="study" class="page"><div class="header"><h1>⏱️ مؤقت المذاكرة</h1><p>جلسة تركيز مع تسجيل وقتك تلقائيًا.</p></div><div class="card timer"><div class="row"><input id="dur" class="field" type="number" value="25" min="1" max="180"><input id="subject" class="field" placeholder="المادة"></div><div id="timer" class="timerNum">25:00</div><button class="btn" onclick="start()">▶ تشغيل</button> <button class="btn secondary" onclick="pause()">⏸ إيقاف</button> <button class="btn secondary" onclick="reset()">🔄 إعادة</button><p id="timerMsg" class="muted" style="margin-top:12px">جاهز.</p></div></section>
+
+<section id="tasks" class="page"><div class="header"><h1>✅ المهام</h1><p>أنجز المهمة واحصل على XP.</p></div><div class="card"><div class="row"><input id="task" class="field" placeholder="اكتب مهمة..." onkeydown="if(event.key==='Enter')addTask()"><button class="btn" onclick="addTask()">إضافة</button></div><div id="tasksList"></div></div></section>
+
+<section id="plan" class="page"><div class="header"><h1>📅 الخطة الأسبوعية</h1><p>اكتب المادة أو الهدف لكل يوم.</p></div><div class="card"><div id="planGrid" class="plan"></div></div></section>
+
+<section id="notes" class="page"><div class="header"><h1>📝 الملاحظات</h1><p>ملاحظاتك محفوظة على جهازك.</p></div><div class="card"><textarea id="notes" class="notes" placeholder="اكتب هنا..."></textarea><button class="btn" onclick="saveNotes()">💾 حفظ</button><span id="saved" class="muted"></span></div></section>
+
+</main></div><nav class="mobile"><button onclick="go('home')">🏠<small>الرئيسية</small></button><button onclick="go('ai')">🤖<small>AI</small></button><button onclick="go('study')">⏱️<small>مذاكرة</small></button><button onclick="go('tasks')">✅<small>مهام</small></button><button onclick="go('library')">📚<small>كتب</small></button></nav></div>
+
+<script>
+/* =========================================================
+   KMA PRO 3.0
+   AI_BACKEND_URL: ضع هنا رابط الخادم الخاص بك.
+   مثال: https://your-domain.com/api/chat
+   لا تضع مفتاح API السري داخل هذا الملف.
+   ========================================================= */
+const AI_BACKEND_URL="";
+const KEY="KMA3_DATA";
+let D=JSON.parse(localStorage.getItem(KEY)||"null")||{user:null,dark:false,minutes:0,xp:0,tasks:[],books:[],notes:"",plan:{}};
+let interval=null,left=0;
+const quotes=["ابدأ بخطوة صغيرة، فالاستمرار يصنع الفرق.","كل سؤال تحله اليوم يقربك من هدفك.","ذاكر بذكاء، وخذ فترات راحة قصيرة.","لا تنتظر الحماس؛ ابدأ وسيأتي الحماس.","تقدمك اليوم أهم من الكمال."];
+function save(){localStorage.setItem(KEY,JSON.stringify(D));update()}
+function login(){let n=name.value.trim(),e=email.value.trim();if(!n)return alert("اكتب اسم الطالب.");if(e&&!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(e))return alert("البريد الإلكتروني غير صحيح.");D.user={n,e};save();show()}
+function show(){loginEl.style.display="none";app.style.display="block";document.body.classList.toggle("dark",D.dark);welcome.textContent="أهلاً يا "+D.user.n+" 👋";notes.value=D.notes||"";renderAll()}
+const loginEl=document.getElementById("login");
+function toggleDark(){D.dark=!D.dark;save();document.body.classList.toggle("dark",D.dark)}
+function go(id,el){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));if(el)el.classList.add("active");window.scrollTo(0,0)}
+function update(){let done=D.tasks.filter(x=>x.done).length;mins.textContent=D.minutes;xp.textContent=D.xp;doneEl=done;document.getElementById("done").textContent=done;booksN.textContent=D.books.length;let p=Math.min(100,Math.round((D.minutes%60)/60*100));bar.style.width=p+"%";pct.textContent=p+"%";quote.textContent=quotes[new Date().getDate()%quotes.length]}
+function addBook(){let t=bt.value.trim(),s=bs.value.trim()||"عام",u=bu.value.trim();if(!t)return alert("اكتب اسم المصدر.");if(u&&!/^https?:\\/\\//i.test(u))return alert("الرابط يجب أن يبدأ بـ https:// أو http://");D.books.push({t,s,u,id:Date.now()});bt.value=bs.value=bu.value="";save();renderBooks()}
+function renderBooks(){books.innerHTML=D.books.length?D.books.map(x=>`<article class="book"><div class="cover">📖</div><h3>${esc(x.t)}</h3><p>${esc(x.s)}</p>${x.u?`<a href="${esc(x.u)}" target="_blank" rel="noopener">فتح الرابط ↗</a>`:""} <button onclick="delBook(${x.id})">حذف</button></article>`).join(""):'<div class="card" style="grid-column:1/-1;text-align:center">أضف أول كتاب أو مصدر 📚</div>'}
+function delBook(id){D.books=D.books.filter(x=>x.id!==id);save();renderBooks()}
+function addTask(){let t=task.value.trim();if(!t)return;D.tasks.unshift({t,done:false,id:Date.now()});task.value="";save();renderTasks()}
+function renderTasks(){tasksList.innerHTML=D.tasks.length?D.tasks.map(x=>`<div class="task ${x.done?"done":""}"><input type="checkbox" ${x.done?"checked":""} onchange="toggleTask(${x.id})"><span>${esc(x.t)}</span><button class="del" onclick="delTask(${x.id})">🗑️</button></div>`).join(""):'<p class="muted" style="padding:15px 0">لا توجد مهام.</p>'}
+function toggleTask(id){let x=D.tasks.find(a=>a.id===id);x.done=!x.done;D.xp=Math.max(0,D.xp+(x.done?10:-10));save();renderTasks()}
+function delTask(id){D.tasks=D.tasks.filter(x=>x.id!==id);save();renderTasks()}
+function saveNotes(){D.notes=notes.value;save();saved.textContent=" تم الحفظ ✓";setTimeout(()=>saved.textContent="",1500)}
+function renderPlan(){let days=["السبت","الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة"];planGrid.innerHTML=days.map(x=>`<div class="day"><b>${x}</b><input value="${esc(D.plan[x]||"")}" placeholder="المادة" onchange="D.plan['${x}']=this.value;save()"></div>`).join("")}
+function start(){if(interval)return;if(!left)left=(parseInt(dur.value)||25)*60;timerMsg.textContent="جلسة تعمل 🔥";interval=setInterval(()=>{left--;draw();if(left<=0){clearInterval(interval);interval=null;finish()}},1000);draw()}
+function pause(){if(interval){clearInterval(interval);interval=null;timerMsg.textContent="متوقف مؤقتًا."}}
+function reset(){if(interval)clearInterval(interval);interval=null;left=(parseInt(dur.value)||25)*60;draw();timerMsg.textContent="جاهز."}
+function draw(){let s=Math.max(0,left),m=Math.floor(s/60),z=s%60;timer.textContent=String(m).padStart(2,"0")+":"+String(z).padStart(2,"0")}
+function finish(){let m=parseInt(dur.value)||25;D.minutes+=m;D.xp+=m;save();left=0;draw();timerMsg.textContent="اكتملت الجلسة 🎉";alert("أحسنت! انتهت جلسة المذاكرة.")}
+function suggest(t){aiInput.value=t;sendAI()}
+function addMessage(text,who){let d=document.createElement("div");d.className="msg "+who;d.textContent=text;messages.appendChild(d);messages.scrollTop=messages.scrollHeight}
+async function sendAI(){
+ let q=aiInput.value.trim();if(!q)return;addMessage(q,"user");aiInput.value="";
+ if(!AI_BACKEND_URL){addMessage("وضع تجريبي: واجهة المساعد جاهزة، لكن لم يتم ربطها بخادم AI بعد.\n\nللتفعيل: ضع رابط Backend آمن في المتغير AI_BACKEND_URL داخل الكود. لا تضع مفتاح API السري في HTML.\n\nيمكن للخادم استقبال { message: السؤال } وإرجاع { reply: الرد }.","bot");return}
+ try{let r=await fetch(AI_BACKEND_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:q,user:D.user})});if(!r.ok)throw new Error();let data=await r.json();addMessage(data.reply||data.message||"لم يصل رد من الخادم.","bot")}catch(e){addMessage("تعذر الاتصال بخادم الذكاء الاصطناعي. تأكد من رابط Backend وإعدادات CORS.","bot")}
+}
+function renderAll(){renderBooks();renderTasks();renderPlan();update();draw();if(!D.user)return}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+window.addEventListener("load",()=>{if(D.user)show();else{loginEl.style.display="grid";}left=(parseInt(dur.value)||25)*60;draw()});
+</script>
+</body>
+</html>
